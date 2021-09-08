@@ -9,7 +9,7 @@ public class Livro implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String titulo;
     private String nome_autor;
     private String texto;
@@ -22,7 +22,7 @@ public class Livro implements Serializable {
         super();
     }
 
-    public Livro(int id, String titulo, String nome_autor, String texto, Categoria categoria) {
+    public Livro(Integer id, String titulo, String nome_autor, String texto, Categoria categoria) {
         this.id = id;
         this.titulo = titulo;
         this.nome_autor = nome_autor;
@@ -30,11 +30,11 @@ public class Livro implements Serializable {
         this.categoria = categoria;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -75,7 +75,7 @@ public class Livro implements Serializable {
         if (this == o) return true;
         if (!(o instanceof Livro)) return false;
         Livro livro = (Livro) o;
-        return getId() == livro.getId();
+        return getId().equals(livro.getId());
     }
 
     @Override
