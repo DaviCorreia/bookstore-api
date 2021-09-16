@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 
 @SpringBootApplication
+//@EntityScan(basePackages = {"com.example.davi.domain"})
+
 @EnableJpaRepositories("com.example.davi.repositories")
 @EntityScan("com.example.davi.domain")
 @ComponentScan({ "com.example.davi.config", "com.example.davi.service" })
