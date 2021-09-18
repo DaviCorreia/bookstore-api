@@ -1,6 +1,7 @@
 package com.example.davi.service;
 
 import com.example.davi.domain.Categoria;
+import com.example.davi.exception.ObjectNotFoundException;
 import com.example.davi.repositories.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,8 @@ public class CategoriaService {
 
     public Categoria findById(Integer id){
         Optional<Categoria> obj = repository.findById(id);
-        return obj.orElse(null);
+        return obj.orElseThrow(() -> new ObjectNotFoundException(
+                "Objeto não encontrado !! ID: "+id+" tipo: "+Categoria.class.getName()));
 
     }
 }
