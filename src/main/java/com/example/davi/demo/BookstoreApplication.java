@@ -14,6 +14,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EntityScan("com.example.davi.domain")
 @ComponentScan({ "com.example.davi.config", "com.example.davi.service" })
 @ComponentScan({"com.example.davi.resources"})
+@ComponentScan({"com.example.davi.exception"})
 public class BookstoreApplication {
 
 
