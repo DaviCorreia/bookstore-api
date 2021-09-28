@@ -1,5 +1,6 @@
 package com.example.davi.service;
 
+import com.example.davi.domain.Categoria;
 import com.example.davi.domain.Livro;
 import com.example.davi.exception.ObjectNotFoundException;
 import com.example.davi.repositories.LivroRepository;
@@ -41,5 +42,13 @@ public class LivroService {
         newObj.setTitulo(obj.getTitulo());
         newObj.setNome_autor(obj.getNome_autor());
         newObj.setTexto(obj.getTexto());
+    }
+
+    public Livro create(Integer id_cat, Livro obj) {
+
+        obj.setId(null);
+        Categoria cat = categoriaService.findById(id_cat);
+        obj.setCategoria(cat);
+        return repository.save(obj);
     }
 }
